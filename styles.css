@@ -1,0 +1,40 @@
+body {
+    font-family: sans-serif;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form input {
+    width: 100px;
+    height: 10px;
+    padding: 5px;
+    border-radius: 1em;
+    margin: 1em 0;
+}
+
+.form button {
+    width: 120px;
+    height: 30px;
+    background-color: red;
+    padding: 1em 1;
+    border-radius: 1em;
+    color: white;
+    cursor: pointer;
+}
+
+.form #container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding: 1em;
+    background-color: lightblue;
+    border-radius: 1em;
+    border: 1px solid black;
+    width: 400px;
+    height: 150px;
+    gap: 20px;
+    /* display: none; */
+}
