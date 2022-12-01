@@ -54,15 +54,33 @@ const form = document.querySelector(".form")
 console.log(boton)
 console.log(input)
 console.log(card)
-
 console.log(form)
 
+/*localStorage.clear()*/
 
-const obtenerPizza = (event)  => {
+const init = () => {
+
+    const obtData = JSON.parse(localStorage.getItem('pizza')) || [];
+    console.log('hola', obtData)
+
+    if (obtData.id > 0) {
+
+        card.innerHTML =
+            `<div id="container">
+            <h2 id="pizza">La pizza es ${obtData.nombre}</h2>
+            <p id="ingredientes">Los ingredientes son: ${obtData.ingredientes}</p>
+            <h3 id="precio_error">El precio es $${obtData.precio}</h3>
+            <img id="img_pizza" src="${obtData.img}" alt="">
+            </div>`;
+    }
+}
+
+
+const obtenerPizza = (event) => {
     event.preventDefault();
 
     const existePizza = Pizzas.find(pizza => pizza.id === parseInt(input.value));
-
+    console.log(existePizza);
     if (!existePizza) {
         card.innerHTML =
             `<div id="container">
@@ -71,21 +89,27 @@ const obtenerPizza = (event)  => {
                 <h3 id="precio_error"></h3>
                 <img id="img_pizza" src="" alt="">
             </div>`
-            return;
-        }
-        
-    
+        return;
+    }
+
     card.innerHTML =
-            `<div id="container">
+        `<div id="container">
                 <h2 id="pizza">La pizza es ${existePizza.nombre}</h2>
                 <p id="ingredientes">Los ingredientes son: ${existePizza.ingredientes}</p>
-                <h3 id="precio_error">El precio es $ ${existePizza.precio}</h3>
+                <h3 id="precio_error">El precio es $${existePizza.precio}</h3>
                 <img id="img_pizza" src="${existePizza.img}" alt="">
             </div>`;
 
+    saveData(existePizza)
+    console.log('save', saveData)
 }
 
-form.onsubmit = obtenerPizza
+const saveData = (pizza) => localStorage.setItem('pizza', JSON.stringify(pizza))
 
+const limpiar = () => input.value = ''
+
+init()
+form.onsubmit = obtenerPizza
+input.addEventListener("focus", limpiar)
 
 
