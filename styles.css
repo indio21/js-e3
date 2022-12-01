@@ -1,7 +1,22 @@
-body {
-    font-family: sans-serif;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+   
 }
 
+body {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+#titulo {
+    filter: drop-shadow(1px 1px 1px #ffbe5c);
+}
 .form {
     display: flex;
     flex-direction: column;
@@ -9,7 +24,7 @@ body {
 
 .form input {
     width: 100px;
-    height: 10px;
+    height: 40px;
     padding: 5px;
     border-radius: 1em;
     margin: 1em 0;
@@ -18,7 +33,7 @@ body {
 .form button {
     width: 120px;
     height: 30px;
-    background-color: red;
+    background-image: linear-gradient(to right, #ffa100, #ff005c);
     padding: 1em 1;
     border-radius: 1em;
     color: white;
@@ -30,11 +45,27 @@ body {
     flex-direction: column;
     margin-top: 10px;
     padding: 1em;
-    background-color: lightblue;
+    background-color: black;
     border-radius: 1em;
     border: 1px solid black;
     width: 400px;
-    height: 150px;
-    gap: 20px;
+    height: 400px;
+    gap: 10px;
     /* display: none; */
+    box-shadow: 1px 1px  #ffbd4b ;
+    
+    
+}
+
+.form #pizza {
+    background: linear-gradient(to right, #ff0000, #fbbc10);
+}
+
+.form #precio_error {
+    color:white;
+}
+
+.form #ingredientes {
+    filter: drop-shadow(1px 1px 1px #ffbe5c);
+    color: white;
 }
